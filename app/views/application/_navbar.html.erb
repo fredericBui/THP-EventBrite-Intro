@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg bg-body-tertiary">
       <div class="container-fluid">
-        <a class="navbar-brand" href="#">Event-Bright</a>
+        <a class="navbar-brand" href="/">Event-Bright</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -16,8 +16,12 @@
               <ul class="dropdown-menu">
                 <li><a class="dropdown-item" href="/users/sign_up">S'inscrire</a></li>
                 <li><a class="dropdown-item" href="/users/sign_in">Se connecter</a></li>
-                <li><a class="dropdown-item" href="#">Mon profil</a></li>
-                <li><a class="dropdown-item" href="/users/sign_out">Se déconnecter</a></li>
+                <% if user_signed_in? %>
+                  <li><a class="dropdown-item" href=<% "/users/#{current_user.id}" %>>Mon profil</a></li>
+                  <li>
+                    <%= button_to "sign out", destroy_user_session_path	, :method => :delete %>
+                  </li>
+                <% end %>
               </ul>
             </li>
           </ul>

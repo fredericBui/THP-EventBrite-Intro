@@ -1,0 +1,14 @@
+<%= link_to "Create an event", new_event_path, class: "btn btn-success"%>
+<% @events.each do |event| %>
+    <div class="card my-3">
+        <div class="card-body">
+            <h5 class="card-title"><%= event.title %></h5>
+            <p class="card-text">Start date : <%= event.start_date %></p>
+            <p class="card-text">Duration : <%= event.duration %>min</p>
+            <p class="card-text">Description : <%= event.description %></p>
+            <p class="card-text">Price : <%= event.price %>€</p>
+            <p class="card-text">Location : <%= event.location %></p>
+            <%= link_to "view", event_path(event), class: "btn btn-primary"%>
+        </div>
+    </div>
+<% end %>

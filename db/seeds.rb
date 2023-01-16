@@ -23,15 +23,20 @@ def generateUser(n)
 end
 generateUser(5)
 
-Event.create(
-    start_date: DateTime.new(2001,rand(1...12),rand(1...28),4,5,6),
-    #=> #<DateTime: 2001-02-03T04:05:06+00:00 ...>
-    duration: rand(1...90),
-    title: "First Event",
-    description: Faker::Lorem.paragraph,
-    price: rand(1...1000),
-    location: "Paris"
-)
+def generateEvent(n)
+    n.times do 
+        Event.create(
+            start_date: DateTime.new(2001,rand(1...12),rand(1...28),4,5,6),
+            #=> #<DateTime: 2001-02-03T04:05:06+00:00 ...>
+            duration: rand(1...90),
+            title: Faker::Lorem.word,
+            description: Faker::Lorem.paragraph,
+            price: rand(1...1000),
+            location: "Paris"
+        )
+    end
+end
+generateEvent(5)
 
 Attendance.create(
     stripe_customer_id: "1876928D7"
