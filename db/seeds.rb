@@ -14,7 +14,7 @@ def generateUser(n)
         lastName = Faker::Name.last_name
         User.create(
             email: "#{firstName}.#{lastName}@yopmail.com",
-            encrypted_password: "424242", 
+            encrypted_password: "Eracle42", 
             description: Faker::Lorem.sentence, 
             first_name: firstName, 
             last_name: lastName
@@ -32,7 +32,7 @@ def generateEvent(n)
             title: Faker::Lorem.word,
             description: Faker::Lorem.paragraph,
             price: rand(1...1000),
-            location: "Paris"
+            location: Faker::Address.city
         )
     end
 end

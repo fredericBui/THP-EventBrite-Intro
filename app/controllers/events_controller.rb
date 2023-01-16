@@ -16,7 +16,8 @@ class EventsController < ApplicationController
       title: Faker::Lorem.word,
       description: Faker::Lorem.paragraph,
       price: rand(1...1000),
-      location: "Paris"
+      location: "Paris",
+      user: current_user
   )
   redirect_to root_path
   end
