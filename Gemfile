@@ -7,7 +7,8 @@ ruby "3.1.2"
 gem "rails", "~> 7.0.4"
 gem 'faker', '3.1'
 gem 'dot_env', '0.0.3'
-
+gem 'bootstrap', '5.2.3'
+gem 'devise', '4.8.1'
 
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem "sprockets-rails"
