@@ -3,7 +3,7 @@ class StaticController < ApplicationController
   end
 
   def profil
-    if authenticate_user!
+    if authenticate_user! == false
       redirect_to root_path
     end
   end
