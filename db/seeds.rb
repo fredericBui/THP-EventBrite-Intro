@@ -14,7 +14,7 @@ def generateUser(n)
         lastName = Faker::Name.last_name
         User.create(
             email: "#{firstName}.#{lastName}@yopmail.com",
-            encrypted_password: "Eracle42", 
+            password: "Eracle42", 
             description: Faker::Lorem.sentence, 
             first_name: firstName, 
             last_name: lastName
@@ -32,12 +32,15 @@ def generateEvent(n)
             title: Faker::Lorem.word,
             description: Faker::Lorem.paragraph,
             price: rand(1...1000),
-            location: Faker::Address.city
+            location: Faker::Address.city,
+            user: User.find(1)
         )
     end
 end
 generateEvent(5)
 
 Attendance.create(
-    stripe_customer_id: "1876928D7"
+    stripe_customer_id: "1876928D7",
+    user: User.find(1),
+    event: Event.find(1)
 )
