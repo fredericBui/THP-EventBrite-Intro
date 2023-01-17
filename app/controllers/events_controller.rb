@@ -6,6 +6,9 @@ class EventsController < ApplicationController
     @event = Event.find(params[:id])
   end
   def new
+    if authenticate_user!
+      redirect_to root_path
+    end
     @event = Event.new
   end
   def create
