@@ -1,15 +1,27 @@
 <%= form_with model: @event do |f| %>
-    <%= f.label :title %>
-    <%= f.text_field :title %>
-    <%= f.label :description %>
-    <%= f.text_field :description %>
-    <%= f.label :location %>
-    <%= f.text_field :location %>
-    <%= f.label :price %>
-    <%= f.number_field :price %>
-    <%= f.label :duration %>
-    <%= f.number_field :duration %>
-    <%= f.label :start_date %>
-    <%= f.datetime_local_field :start_date %>
-    <%= f.submit %>
+    <div class="form-group">
+        <%= f.label :title %>
+        <%= f.text_field :title %>
+    </div>
+    <div class="form-group">
+        <%= f.label :description %>
+        <%= f.text_field :description %>
+    </div>
+    <div class="form-group">
+        <%= f.label :location %>
+        <%= f.text_field :location %>
+    </div>
+    <div class="form-group">
+        <%= f.label :price %>
+        <%= f.number_field :price %>
+    </div>
+    <div class="form-group">
+        <%= f.label :duration %>
+        <%= f.number_field :duration %>
+    </div>
+    <div class="form-group">
+        <%= f.label :start_date %>
+        <%= f.datetime_local_field :start_date %>
+    </div>
+    <%= f.submit class: "btn btn-primary" %>
 <% end%>
