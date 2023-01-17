@@ -3,8 +3,14 @@
     <p>Voici ton nom : <%= current_user.last_name %></p>
     <p>Voici ta description : <%= current_user.description %></p>
     <p>Voici ton email : <%= current_user.email %></p>
-<% end %>
 
-<%= link_to "Edit email / password", edit_user_registration_path %>
-
+    <%= link_to "Edit email / password", edit_user_registration_path %>
+    <% current_user.events.each do |event| %>
+        <div class="card">
+            <div class="card-body">
+                <%= event.title %>
+                <%= link_to "view", event_path(event), class: "btn btn-primary" %>
+            </div>
+        </div>
+    <% end %>
 <% end %>
